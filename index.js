@@ -7,7 +7,7 @@ const cors = require("cors");
  
 mongoose.connect(process.env.MONGODB_URI)
 .then(()=>console.log("MongoDB Connected"))
-.catch((error)=>console.error("DB Connection Error:",error))git config --global --unset user.email
+.catch((error)=>console.error("DB Connection Error:",error))
  
 app.use(cors({
   origin: "http://192.168.1.40:3000", // exact frontend URL
