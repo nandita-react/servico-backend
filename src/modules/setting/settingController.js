@@ -15,7 +15,7 @@ exports.create = async (req, res) => {
 exports.findAll = async (req, res) => {
    const settingRepo = new Repository(req)
     try {
-        const allinformation = await settingRepo.find();
+        const allinformation = await settingRepo.findAll();
        return Handler.success(res, allinformation, 'fetch Successfully')
     } catch (error) {
         console.log(error);
