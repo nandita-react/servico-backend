@@ -13,6 +13,7 @@ router.use("/providers",require("../provider/providerRouter"))
 router.use("/providerServices",require("../providerServices/providerServicesRouter"))
 router.use("/providerWorkingdays",require("../providerWorkingDay/providerWorkingdayRouter"));
 router.use("/bookings",require("../booking/bookingRouter"))
+router.use("/settings",require("../setting/settingRouter"))
 
 
 
