@@ -40,6 +40,7 @@ routers.post("/create",authMiddleware,providerController.create);
  *   get:
  *     summary: Get provider by ID
  *     tags: [Provider]
+ *     description: Fetch provider details including basic info, services, working days, documents, and payment info
  *     parameters:
  *       - in: path
  *         name: id
@@ -50,6 +51,73 @@ routers.post("/create",authMiddleware,providerController.create);
  *     responses:
  *       200:
  *         description: Provider fetched successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 _id:
+ *                   type: string
+ *                 basicInfo:
+ *                   type: object
+ *                   properties:
+ *                     user:
+ *                       type: string
+ *                       description: User ID reference
+ *                     city:
+ *                       type: string
+ *                       enum:
+ *                         - Select City
+ *                         - Mumbai
+ *                         - Delhi
+ *                         - Bangalore
+ *                         - Hyderabad
+ *                         - Chennai
+ *                         - kolkata
+ *                         - Pune
+ *                         - Ahmedabad
+ *                     experience:
+ *                       type: number
+ *                     bio:
+ *                       type: string
+ *                 providerServices:
+ *                   type: string
+ *                   description: ProviderService ID
+ *                 working:
+ *                   type: string
+ *                   description: WorkingDay ID
+ *                 documents:
+ *                   type: object
+ *                   properties:
+ *                     idProof:
+ *                       type: object
+ *                       properties:
+ *                         url:
+ *                           type: string
+ *                           nullable: true
+ *                     addressProof:
+ *                       type: object
+ *                       properties:
+ *                         url:
+ *                           type: string
+ *                           nullable: true
+ *                     certificate:
+ *                       type: object
+ *                       properties:
+ *                         url:
+ *                           type: string
+ *                           nullable: true
+ *                 payment:
+ *                   type: object
+ *                   properties:
+ *                     accountHolderName:
+ *                       type: string
+ *                     accountNumber:
+ *                       type: string
+ *                     bankName:
+ *                       type: string
+ *                     ifsc:
+ *                       type: string
  *       404:
  *         description: Provider not found
  */

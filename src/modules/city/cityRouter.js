@@ -25,15 +25,39 @@ const cityController=require("./cityController");
  *         description: City created successfully
  */
 routers.post("/create",cityController.create);
+
 /**
  * @swagger
  * /api/cities:
  *   get:
  *     summary: Get all cities
  *     tags: [City]
+ *     description: Fetch all cities with state and coordinates
  *     responses:
  *       200:
- *         description: City list
+ *         description: City list fetched successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   _id:
+ *                     type: string
+ *                   cityName:
+ *                     type: string
+ *                   stateName:
+ *                     type: string
+ *                   coordinates:
+ *                     type: object
+ *                     properties:
+ *                       lat:
+ *                         type: number
+ *                       lng:
+ *                         type: number
+ *                   popular:
+ *                     type: boolean
  */
 routers.get("/",cityController.findAll);
 
@@ -43,6 +67,7 @@ routers.get("/",cityController.findAll);
  *   get:
  *     summary: Get city by ID
  *     tags: [City]
+ *     description: Fetch a single city using its unique ID
  *     parameters:
  *       - in: path
  *         name: id
@@ -53,6 +78,26 @@ routers.get("/",cityController.findAll);
  *     responses:
  *       200:
  *         description: City fetched successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 _id:
+ *                   type: string
+ *                 cityName:
+ *                   type: string
+ *                 stateName:
+ *                   type: string
+ *                 coordinates:
+ *                   type: object
+ *                   properties:
+ *                     lat:
+ *                       type: number
+ *                     lng:
+ *                       type: number
+ *                 popular:
+ *                   type: boolean
  *       404:
  *         description: City not found
  */
