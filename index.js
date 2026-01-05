@@ -12,13 +12,17 @@ mongoose.connect(process.env.MONGODB_URI)
 .then(()=>console.log("MongoDB Connected"))
 .catch((error)=>console.error("DB Connection Error:",error))
  
-// app.use(cors({
-//   origin: "http://localhost:5000", // exact frontend URL
-//   credentials: true,
-//   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-//   allowedHeaders: ["Content-Type", "Authorization"],
-// }));
-app.use(cors())
+app.use(cors({
+  origin: [
+   "http://localhost:3000",
+   "http://localhost:5000",
+   "https://servico-backend-ckhb.onrender.com"
+   ],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
+// app.use(cors())
  
 app.use(express.json());
 
