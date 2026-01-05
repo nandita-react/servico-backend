@@ -26,15 +26,41 @@ const categoryController=require("./categoryController");
  */
 routers.post("/create",categoryController.create);
 
+
 /**
  * @swagger
  * /api/categories:
  *   get:
  *     summary: Get all categories
  *     tags: [Category]
+ *     description: Fetch all service categories
  *     responses:
  *       200:
  *         description: Category list fetched successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   _id:
+ *                     type: string
+ *                   name:
+ *                     type: string
+ *                   icon:
+ *                     type: string
+ *                     nullable: true
+ *                   status:
+ *                     type: boolean
+ *                   serviceCount:
+ *                     type: number
+ *                   createdAt:
+ *                     type: string
+ *                     format: date-time
+ *                   updatedAt:
+ *                     type: string
+ *                     format: date-time
  */
 routers.get("/",categoryController.findAll);
 // routers.get("/:id",categoryController.findById);
