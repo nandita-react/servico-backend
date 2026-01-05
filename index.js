@@ -12,12 +12,13 @@ mongoose.connect(process.env.MONGODB_URI)
 .then(()=>console.log("MongoDB Connected"))
 .catch((error)=>console.error("DB Connection Error:",error))
  
-app.use(cors({
-  origin: "http://localhost:5000", // exact frontend URL
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-}));
+// app.use(cors({
+//   origin: "http://localhost:5000", // exact frontend URL
+//   credentials: true,
+//   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+//   allowedHeaders: ["Content-Type", "Authorization"],
+// }));
+app.use(cors())
  
 app.use(express.json());
 
