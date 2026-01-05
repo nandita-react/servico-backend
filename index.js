@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGODB_URI)
 .catch((error)=>console.error("DB Connection Error:",error))
  
 app.use(cors({
-  origin: "http://192.168.1.40:3000", // exact frontend URL
+  origin: "http://localhost:5000", // exact frontend URL
   credentials: true,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
