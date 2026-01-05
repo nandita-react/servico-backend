@@ -28,17 +28,79 @@ const servicesController=require("./servicesController");
  */
 routers.post("/create",servicesController.create);
 
+
 /**
  * @swagger
  * /api/services:
  *   get:
  *     summary: Get all services
  *     tags: [Services]
+ *     description: Fetch all services with pricing, ratings, inclusions, exclusions, and FAQs
  *     responses:
  *       200:
  *         description: Services fetched successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   _id:
+ *                     type: string
+ *                   category:
+ *                     type: string
+ *                     description: Category ID reference
+ *                   name:
+ *                     type: string
+ *                   slug:
+ *                     type: string
+ *                   description:
+ *                     type: string
+ *                   shortDescription:
+ *                     type: string
+ *                   images:
+ *                     type: array
+ *                     items:
+ *                       type: string
+ *                   price:
+ *                     type: number
+ *                   discountedPrice:
+ *                     type: number
+ *                   duration:
+ *                     type: number
+ *                     description: Duration in minutes
+ *                   rating:
+ *                     type: string
+ *                     nullable: true
+ *                     description: Rating ID reference
+ *                   reviewsCount:
+ *                     type: number
+ *                   isPopular:
+ *                     type: boolean
+ *                   isFeatured:
+ *                     type: boolean
+ *                   inclusions:
+ *                     type: array
+ *                     items:
+ *                       type: string
+ *                   exclusions:
+ *                     type: array
+ *                     items:
+ *                       type: string
+ *                   faqs:
+ *                     type: array
+ *                     items:
+ *                       type: object
+ *                       properties:
+ *                         question:
+ *                           type: string
+ *                         answer:
+ *                           type: string
  */
 routers.get("/",servicesController.findAll);
+
+
 
 /**
  * @swagger
@@ -46,6 +108,7 @@ routers.get("/",servicesController.findAll);
  *   get:
  *     summary: Get service by ID
  *     tags: [Services]
+ *     description: Fetch a single service with full details including pricing, flags, inclusions, exclusions, and FAQs
  *     parameters:
  *       - in: path
  *         name: id
@@ -56,6 +119,62 @@ routers.get("/",servicesController.findAll);
  *     responses:
  *       200:
  *         description: Service fetched successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 _id:
+ *                   type: string
+ *                 category:
+ *                   type: string
+ *                   description: Category ID reference
+ *                 name:
+ *                   type: string
+ *                 slug:
+ *                   type: string
+ *                 description:
+ *                   type: string
+ *                 shortDescription:
+ *                   type: string
+ *                 images:
+ *                   type: array
+ *                   items:
+ *                     type: string
+ *                 price:
+ *                   type: number
+ *                 discountedPrice:
+ *                   type: number
+ *                 duration:
+ *                   type: number
+ *                   description: Duration in minutes
+ *                 rating:
+ *                   type: string
+ *                   nullable: true
+ *                   description: Rating ID reference
+ *                 reviewsCount:
+ *                   type: number
+ *                 isPopular:
+ *                   type: boolean
+ *                 isFeatured:
+ *                   type: boolean
+ *                 inclusions:
+ *                   type: array
+ *                   items:
+ *                     type: string
+ *                 exclusions:
+ *                   type: array
+ *                   items:
+ *                     type: string
+ *                 faqs:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       question:
+ *                         type: string
+ *                       answer:
+ *                         type: string
  *       404:
  *         description: Service not found
  */
