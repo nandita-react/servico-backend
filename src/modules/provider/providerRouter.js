@@ -6,7 +6,7 @@ const authMiddleware =require("../middleware/verifytoken")
 
 /**
  * @swagger
- * /api/provider/create:
+ * /api/providers/create:
  *   post:
  *     summary: Create a new provider
  *     tags: [Provider]
@@ -36,7 +36,7 @@ routers.post("/create",authMiddleware,providerController.create);
 
 /**
  * @swagger
- * /api/provider/{id}:
+ * /api/providers/{id}:
  *   get:
  *     summary: Get provider by ID
  *     tags: [Provider]

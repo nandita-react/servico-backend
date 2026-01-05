@@ -5,7 +5,7 @@ const bookingController=require("./bookingController");
 
 /**
  * @swagger
- * /api/booking/create:
+ * /api/bookings/create:
  *   post:
  *     summary: Create a new booking
  *     tags: [Booking]
@@ -31,7 +31,7 @@ routers.post("/create",bookingController.create)
 
 /**
  * @swagger
- * /api/booking:
+ * /api/bookings:
  *   get:
  *     summary: Get all bookings
  *     tags: [Booking]

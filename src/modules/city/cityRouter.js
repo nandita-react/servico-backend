@@ -5,7 +5,7 @@ const cityController=require("./cityController");
 
 /**
  * @swagger
- * /api/city/create:
+ * /api/cities/create:
  *   post:
  *     summary: Create a new city
  *     tags: [City]
@@ -27,7 +27,7 @@ const cityController=require("./cityController");
 routers.post("/create",cityController.create);
 /**
  * @swagger
- * /api/city:
+ * /api/cities:
  *   get:
  *     summary: Get all cities
  *     tags: [City]

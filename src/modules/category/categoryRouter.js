@@ -5,7 +5,7 @@ const categoryController=require("./categoryController");
 
 /**
  * @swagger
- * /api/category/create:
+ * /api/categories/create:
  *   post:
  *     summary: Create a new category
  *     tags: [Category]
@@ -28,7 +28,7 @@ routers.post("/create",categoryController.create);
 
 /**
  * @swagger
- * /api/category:
+ * /api/categories:
  *   get:
  *     summary: Get all categories
  *     tags: [Category]

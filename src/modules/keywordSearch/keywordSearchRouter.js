@@ -6,7 +6,7 @@ const cityController=require("./keywordSearchController");
 
 /**
  * @swagger
- * /api/city/search:
+ * /api/keywords/search:
  *   post:
  *     summary: Search city by keyword
  *     tags: [City]
