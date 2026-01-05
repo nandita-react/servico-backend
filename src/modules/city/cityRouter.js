@@ -39,7 +39,7 @@ routers.get("/",cityController.findAll);
 
 /**
  * @swagger
- * /api/city/{id}:
+ * /api/cities/{id}:
  *   get:
  *     summary: Get city by ID
  *     tags: [City]
