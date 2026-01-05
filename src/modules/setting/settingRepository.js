@@ -12,7 +12,7 @@ class settingRepo{
     }
 
     async findAll(){
-        return await Schema.find()
+        return await Schema.findOne()
     }
 }
 
