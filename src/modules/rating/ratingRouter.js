@@ -37,9 +37,29 @@ routers.post("/create",ratingController.create);
  *   get:
  *     summary: Get all ratings
  *     tags: [Rating]
+ *     description: Fetch all user ratings with stars and reviews
  *     responses:
  *       200:
  *         description: Ratings fetched successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   _id:
+ *                     type: string
+ *                   user:
+ *                     type: string
+ *                     description: User ID reference
+ *                   stars:
+ *                     type: number
+ *                     minimum: 1
+ *                     maximum: 5
+ *                   review:
+ *                     type: string
+ *                     nullable: true
  */
 routers.get("/",ratingController.findAll);
 
@@ -49,6 +69,7 @@ routers.get("/",ratingController.findAll);
  *   get:
  *     summary: Get rating by ID
  *     tags: [Rating]
+ *     description: Fetch a single rating using its ID
  *     parameters:
  *       - in: path
  *         name: id
@@ -59,6 +80,23 @@ routers.get("/",ratingController.findAll);
  *     responses:
  *       200:
  *         description: Rating fetched successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 _id:
+ *                   type: string
+ *                 user:
+ *                   type: string
+ *                   description: User ID reference
+ *                 stars:
+ *                   type: number
+ *                   minimum: 1
+ *                   maximum: 5
+ *                 review:
+ *                   type: string
+ *                   nullable: true
  *       404:
  *         description: Rating not found
  */
