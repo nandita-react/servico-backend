@@ -11,8 +11,8 @@ class settingRepo{
         return await newData.save()
     }
 
-    async findAll(){
-        return await Schema.findOne()
+    async findOne(){
+        return await Schema.findOne().populate("generalSetting.cityId","cityName")
     }
 }
 

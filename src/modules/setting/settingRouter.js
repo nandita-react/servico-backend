@@ -59,6 +59,6 @@ routers.post("/create",settingController.create);
  *                         type: string
  *                         description: City ID reference
  */
-routers.get("/",settingController.findAll);
+routers.get("/",settingController.findOne);
 
 module.exports=routers
